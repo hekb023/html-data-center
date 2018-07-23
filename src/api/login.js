@@ -26,3 +26,11 @@ export function getUserInfo(token) {
     params: { token }
   })
 }
+
+export function getNavList(token) {
+	return request({
+    url: '/user/navList',
+    method: 'get',
+    params: { token }
+  })
+}

@@ -53,8 +53,7 @@ export default {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-          	loginByUsername(this.loginForm).then(req => {
-          		console.log(req)
+          	loginByUsername(this.loginForm).then(res => {
           		this.$router.push({ path: '/layout' })
           	});
           } else {
