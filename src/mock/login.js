@@ -1,3 +1,5 @@
+import {getParam} from 'utils'
+
 const userMap = {
   admin: {
     roles: ['admin'],
@@ -18,10 +20,10 @@ const userMap = {
 export default {
   loginByUsername: config => {
     const { username } = JSON.parse(config.body)
-    return userMap[username].token
+    return userMap[username]
   },
   getUserInfo: config => {
-    const { token } = param2Obj(config.url)
+    const { token } = getParam(config.url)
     if (userMap[token]) {
       return userMap[token]
     } else {

@@ -1,9 +1,9 @@
 import request from 'utils/request'
 
-export function loginByUsername(userInfo) {
+export function loginByUsername(username,password) {
   const data = {
-    username:userInfo.username,
-    password:userInfo.password
+    username:username,
+    password:password
   }
   return request({
     url: '/login/login',

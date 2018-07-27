@@ -1,29 +1,31 @@
 <template>
-  <div class="app-wrapper">
-    <h2>布局页面</h2>
-  </div>
+	<div class="app-wrapper">
+		<div class="main-container">
+      <tags-view></tags-view>
+      <navbar></navbar>
+      <app-main></app-main>
+    </div>
+	</div>
 </template>
 
 <script>
-import {getNavList} from 'api/login'
-export default {
-	data() {
-		return{
-      loginForm: {
-        username: '',
-        password: ''
-      }
-    }
-	},
-	methods: {
-	},
-	created: function () {
-		getNavList("admin").then(res => {
-			console.log(res);
-		})
+	import { TagsView, Navbar, AppMain } from './components'
+
+	export default {
+		name: 'layout',
+		components: {
+			TagsView,
+			Navbar,
+			AppMain
+		},
+		computed: {
+//			sidebar() {
+//				return this.$store.state.app.sidebar
+//			}
+		}
 	}
-}
 </script>
 
 <style>
+
 </style>
