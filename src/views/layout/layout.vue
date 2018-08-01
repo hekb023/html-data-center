@@ -2,7 +2,7 @@
 	<div class="app-wrapper">
 		<div class="main-container">
       <tags-view></tags-view>
-      <navbar></navbar>
+      <navbar :nav-list="navList"></navbar>
       <app-main></app-main>
     </div>
 	</div>
@@ -18,11 +18,27 @@
 			Navbar,
 			AppMain
 		},
-		computed: {
-//			sidebar() {
-//				return this.$store.state.app.sidebar
-//			}
-		}
+		data() {
+    		return {
+    			navList: []
+    		}
+    	},
+		methods: {
+			getNavBar(){
+				if(this.$store.getters.navList){
+					this.navList = this.$store.getters.navList.data
+				}else{
+					this.$store.dispatch('GetUserNav', 'admin').then((data) => {
+						this.navList = this.$store.getters.navList.data
+					}).catch((error) => {
+						console.log(error)
+					})
+				}
+			}
+		},
+		mounted(){
+		    this.getNavBar();
+	    }
 	}
 </script>
 

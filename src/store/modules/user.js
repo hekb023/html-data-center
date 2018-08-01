@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 const user = {
 	state: {
-		userNav: '',
+		navList: '',
 		token: '',
 		name: '',
 		avatar: '',
@@ -11,8 +11,8 @@ const user = {
 	},
 
 	mutations: {
-		SET_NAV: (state, code) => {
-			state.code = code
+		SET_NAV: (state, data) => {
+			state.navList = data
 		},
 		SET_TOKEN: (state, token) => {
 			state.token = token

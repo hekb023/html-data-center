@@ -1,5 +1,5 @@
 const getters = {
-  userNav: state => state.user.nav,
+  navList: state => state.user.navList,
   token: state => state.user.token,
   status: state => state.user.status,
   avatar: state => state.user.avatar,
